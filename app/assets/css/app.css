@@ -1,0 +1,103 @@
+/* app css stylesheet */
+.nav {
+  margin-bottom: 40px;
+}
+
+.search {
+  font-size: 20px;
+}
+
+.pw-wrapper md-content {
+  margin-bottom: 20px;
+  background-color: #F98B00;
+  opacity: 0;
+  animation: fadeIn .3s linear forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+}
+
+    to {
+        opacity: 1;
+        transform : translateY(0);
+    }
+}
+
+.pw-wrapper md-content .item {
+  padding: 10px;
+}
+
+.found-items {
+  margin: 20px 0px 20px 0px;
+}
+
+.input-field {
+  height: 50px;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight:300;
+  color: white;
+  float:left;
+  padding:5px 10px;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  background-color: rgba(0,0,0,.15);
+}
+
+.copy {
+  height:50px;
+  width:70px;
+  padding:10px;
+  text-align:center;
+  background-color: rgba(0,0,0,.25);
+  border:0;
+  border-left:0;
+  color: white;
+  cursor:pointer;
+  padding:0;
+  vertical-align:bottom;
+}
+
+.create-button {
+  text-align: center;
+}
+
+.success {
+  background-color: #72d572;
+  padding: 30px;
+  border-radius: 1px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: success;
+  animation-duration: 5s;
+
+}
+
+
+@keyframes success {
+
+0% {
+        opacity: 0;
+        transform: translateY(50px);
+}
+
+5% {
+        opacity: 1;
+        transform: translateY(0);
+}
+
+95% {
+        opacity: 1;
+        transform: translateY(0);
+}
+
+100% {
+        opacity: 0;
+        transform : translateY(-50px);
+    }
+}
