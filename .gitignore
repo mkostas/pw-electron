@@ -8,3 +8,6 @@ tmp
 app/passwords.json
 app/bower_components/
 app/tmp/
+build/
+dist/
+*.exe

@@ -22,15 +22,17 @@ function init() {
 }
 
 function copyElectron() {
-	console.log('Copying electron' + projectDir.path())
+	console.log('Copying electron ' + projectDir.path())
 	return projectDir.copyAsync('./node_modules/electron-prebuilt/dist', buildDir.path(), { overwrite: true });
 }
 
 function cleanupRuntime() {
+	console.log('Cleanup Runtime');
 	return buildDir.removeAsync('resources/default_app');
 }
 
 function createAsar() {
+	console.log('Creating Asar');
 	var deferred = Q.defer();
 	asar.createPackage(appDir.path(), buildDir.path('resources/app.asar'), function () {
 		deferred.resolve();
@@ -39,6 +41,7 @@ function createAsar() {
 }
 
 function updateResources() {
+	console.log('Updating resources');
 	var deferred = Q.defer();
 
 	// Copy your icon from resource folder into build folder.
@@ -46,6 +49,7 @@ function updateResources() {
 
 	// Replace Electron icon for your own.
 	var rcedit = require('rcedit');
+
 	rcedit(buildDir.path('electron.exe'), {
 		'icon': projectDir.path('resources/windows/icon.ico'),
 		'version-string': {
@@ -53,6 +57,7 @@ function updateResources() {
 			'FileDescription': manifest.description,
 		}
 	}, function (err) {
+		console.log(err);
 		if (!err) {
 			deferred.resolve();
 		}
@@ -61,10 +66,13 @@ function updateResources() {
 }
 //Rename the electron exe 
 function rename() {
+	console.log('Renaming electron.exe');
 	return buildDir.renameAsync('electron.exe', manifest.name + '.exe');
+	console.log(manifest.name);
 }
 
 function createInstaller() {
+	console.log('Creating Installer');
 	var deferred = Q.defer();
 
 	function replace(str, patterns) {

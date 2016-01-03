@@ -27,8 +27,11 @@ gulp.task('copy', ['clean'], function () {
         overwrite: true,
         matching: [
             './node_modules/**/*',
+            './components/**/*',
+            './tmp/**/*',
             '*.html',
             '*.css',
+            '*.js',
             'index.js',
             'package.json'
         ]

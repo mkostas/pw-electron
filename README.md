@@ -14,3 +14,9 @@ Created with:
 3. bower install
 4. Place a password.json in path: app/tmp/passwords.json
 5. gulp run
+
+## Build
+
+1. Download and install nsis, put it on path
+2. gulp build
+3. gulp build-electron

@@ -1,7 +1,7 @@
 {
-  "name": "AngularElectron",
+  "name": "pw-electron",
   "version": "0.0.0",
-  "description": "AngularElectron",
+  "description": "password-manager",
   "main": "app.js",
   "author": {
     "name": "mkostas",
@@ -11,6 +11,7 @@
     "angular": "~1.4.4",
     "angular-material": "~0.10.1",
     "angular-route": "~1.4.4",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "angular-clipboard": "~1.2.0"
   }
 }

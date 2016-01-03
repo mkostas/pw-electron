@@ -1,6 +1,7 @@
 {
-  "name": "pwElectron",
+  "name": "pw-electron",
   "version": "0.0.0",
+  "description": "Password manager",
   "devDependencies": {
     "gulp": "^3.9.0",
     "fs-jetpack": "^0.7.0",
