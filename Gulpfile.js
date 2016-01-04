@@ -52,7 +52,7 @@ gulp.task('run', function () {
     childProcess.spawn(electron, ['./app'], { stdio: 'inherit' });
 });
 
-gulp.task('build-electron', function () {
+gulp.task('build-electron', ['build'], function () {
     switch (os.platform()) {
         case 'darwin':
             // execute build.osx.js 
@@ -61,7 +61,7 @@ gulp.task('build-electron', function () {
             //execute build.linux.js
             break;
         case 'win32':
-        console.log('sdf')
+        console.log('Building for Windows');
             return release_windows.build();
     }
 });
