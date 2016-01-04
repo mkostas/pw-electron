@@ -11,24 +11,26 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 
 .controller('createPasswordCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {	
 
+	// Get userData path from electron's browser "backend", with filename to save ("passwords.json")
+	var remote = require('remote');
+	var userDataPath = remote.getCurrentWindow().dataFilePath;
+
     $scope.create = function(password) {
     	$scope.success = false;
 
 		var passwordData = $scope.password;
 		passwordData.id = new Date().toISOString();
 
-		// passwordData = JSON.stringify(passwordData);
-
 		var fs = require('fs');
 
-		fs.readFile(__dirname + '/tmp/passwords.json', 'utf-8', function (err, data) {
+		fs.readFile(userDataPath, 'utf-8', function (err, data) {
 			var passwordObjects = [];
 			// Empty file			
-		  	if (data === '') {		  		
+		  	if (data === '') {
 		  		passwordObjects.push(passwordData);
 
 		  		// Write into the file
-		  		fs.writeFile(__dirname + '/tmp/passwords.json', JSON.stringify(passwordObjects), function (err) {
+		  		fs.writeFile(userDataPath, JSON.stringify(passwordObjects), function (err) {
 				    if(err) {
 				        return console.log(err);
 				    } else {
@@ -47,7 +49,7 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 		  		passwordObjects.push(passwordData);
 
 		  		// Write into the file
-				fs.writeFile(__dirname + '/tmp/passwords.json', JSON.stringify(passwordObjects), function (err) {
+				fs.writeFile(userDataPath, JSON.stringify(passwordObjects), function (err) {
 					if (err) {
 				  		return console.log(err);
 					} else {

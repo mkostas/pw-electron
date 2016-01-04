@@ -28,6 +28,7 @@ gulp.task('copy', ['clean'], function () {
         matching: [
             './node_modules/**/*',
             './components/**/*',
+            './bower_components/**/*',
             './tmp/**/*',
             '*.html',
             '*.css',

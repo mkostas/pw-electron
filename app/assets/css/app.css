@@ -1,4 +1,13 @@
 /* app css stylesheet */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.nav a {
+  text-shadow: 1px 1px 2px #000000;
+  font-size: 28px;
+}
+
 .nav {
   margin-bottom: 40px;
 }
@@ -32,6 +41,7 @@
 
 .found-items {
   margin: 20px 0px 20px 0px;
+  padding: 20px;
 }
 
 .input-field {
