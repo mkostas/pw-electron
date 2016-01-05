@@ -14,6 +14,7 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 	// Get userData path from electron's browser "backend", with filename to save ("passwords.json")
 	var remote = require('remote');
 	var userDataPath = remote.getCurrentWindow().dataFilePath;
+	var fs = require('fs');
 
     $scope.create = function(password) {
     	$scope.success = false;
@@ -21,11 +22,9 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 		var passwordData = $scope.password;
 		passwordData.id = new Date().toISOString();
 
-		var fs = require('fs');
-
 		fs.readFile(userDataPath, 'utf-8', function (err, data) {
 			var passwordObjects = [];
-			// Empty file			
+			// If file is empty			
 		  	if (data === '') {
 		  		passwordObjects.push(passwordData);
 
@@ -43,7 +42,7 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 
 					}
 				}); 
-			// Non empty file
+			// If file is not empty
 		  	} else {
 		  		passwordObjects = JSON.parse(data);
 		  		passwordObjects.push(passwordData);
