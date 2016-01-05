@@ -8,7 +8,8 @@ angular.module('myPasswords', [
   'ngAnimate',
   'myPasswords.version',
   'myPasswords.passwords',
-  'myPasswords.create-password'
+  'myPasswords.create-password',
+  'myPasswords.edit-password'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/passwords'});

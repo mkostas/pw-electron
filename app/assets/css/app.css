@@ -77,19 +77,28 @@
   text-align: center;
 }
 
-.success {
+.successMessage {
   background-color: #72d572;
   padding: 30px;
   border-radius: 1px;
   margin-bottom: 20px;
   opacity: 0;
-  animation: success;
-  animation-duration: 5s;
-
+  animation: message;
+  animation-duration: 2s;
 }
 
 
-@keyframes success {
+.errorMessage {
+  background-color: #E06571;
+  padding: 30px;
+  border-radius: 1px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: message;
+  animation-duration: 2s;
+}
+
+@keyframes message {
 
 0% {
         opacity: 0;

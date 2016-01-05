@@ -38,7 +38,7 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 					    // Set success to false after 5 secs
 					    $timeout(function(){
 							$scope.success = false;
-				       	}, 5000);
+				       	}, 500);
 
 					}
 				}); 
