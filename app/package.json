@@ -1,6 +1,6 @@
 {
-  "name": "pw-electron",
+  "name": "Password Manager MK",
   "version": "1.0.0",
-  "description": "Password manager",
+  "description": "Very simple password manager",
   "main": "index.js"
 }

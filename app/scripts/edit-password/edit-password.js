@@ -46,7 +46,7 @@ angular.module('myPasswords.edit-password', ['ngRoute'])
 		  	for(var j = 0; j < passwordObjects.length; j++) {
 		  		if(passwordObjects[j].name === passwordData.name) {		  			
 		  			counter += 1;
-		  		}		  		
+		  		}
 		  	}
 
 		  	// If found more than one then its a duplicate

@@ -4,6 +4,7 @@
 }
 
 .nav a {
+  color: #FFFFFF;
   text-shadow: 1px 1px 2px #000000;
   font-size: 28px;
 }
@@ -119,4 +120,17 @@
         opacity: 0;
         transform : translateY(-50px);
     }
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.successMessage i , .errorMessage i {
+  vertical-align: middle;
+}
+
+md-dialog-actions span {
+  color: #000000;
 }

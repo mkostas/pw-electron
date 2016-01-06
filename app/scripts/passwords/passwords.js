@@ -53,7 +53,7 @@ angular.module('myPasswords.passwords', ['ngRoute'])
                 // Set success to false after 5 secs
                 $timeout(function(){
                     $scope.success = false;
-                }, 5000);
+                }, 2000);
             }
           });
       // User canceled delete 
