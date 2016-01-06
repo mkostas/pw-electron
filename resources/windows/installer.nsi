@@ -18,7 +18,8 @@
 !define regkey "Software\${productName}"
 !define uninstkey "Software\Microsoft\Windows\CurrentVersion\Uninstall\${productName}"
 
-!define uninstaller "uninstall.exe"
+!define uninstallerName "Uninstall"
+!define uninstaller "{{uninstallerName}}.exe"
 
 ; --------------------------------
 ; Installation
@@ -28,7 +29,7 @@ SetCompressor lzma
 
 Name "${productName}"
 Icon "${icon}"
-OutFile "${dest}\Installer.exe"
+OutFile "${dest}\Setup.exe"
 InstallDir "$PROGRAMFILES\${productName}"
 InstallDirRegKey HKLM "${regkey}" ""
 RequestExecutionLevel user
@@ -107,7 +108,7 @@ Section "Install"
     ; Create start menu shortcut
     CreateDirectory "$SMPROGRAMS\${productName}"
     CreateShortCut "$SMPROGRAMS\${productName}\${productName}.lnk" "$INSTDIR\${exec}" "" "$INSTDIR\icon.ico"
-    CreateShortCut "$SMPROGRAMS\${productName}\${uninstaller}.lnk" "$INSTDIR\${uninstaller}" "" "$INSTDIR\icon.ico"
+    CreateShortCut "$SMPROGRAMS\${productName}\${uninstallerName}.lnk" "$INSTDIR\${uninstaller}" "" "$INSTDIR\icon.ico"
 
     ; Create desktop shortcut
     CreateShortCut "$DESKTOP\${productName}.lnk" "$INSTDIR\${exec}" ""
@@ -168,7 +169,7 @@ Section "Uninstall"
     DetailPrint "$SMPROGRAMS\${productName}\${productName}.lnk"
     DetailPrint "$SMPROGRAMS\${productName}\${uninstaller}.lnk"
     delete "$SMPROGRAMS\${productName}\${productName}.lnk"
-    delete "$SMPROGRAMS\${productName}\${uninstaller}.lnk"
+    delete "$SMPROGRAMS\${productName}\${uninstallerName}.lnk"
 
     ; Try to remove the Start Menu folder - this will only happen if it is empty
     rmDir "$SMPROGRAMS\${productName}"
