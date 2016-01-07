@@ -33,6 +33,7 @@ gulp.task('copy', ['clean'], function () {
             '*.html',
             '*.css',
             '*.js',
+            './assets/images/*',
             'index.js',
             'package.json'
         ]
