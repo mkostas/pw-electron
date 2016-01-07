@@ -18,7 +18,6 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 	var counter = 0;
 
     $scope.create = function(password) {
-    	$scope.success = false;
 
 		var passwordData = $scope.password;
 		passwordData.id = new Date().toISOString();
@@ -83,5 +82,33 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 		  	}		  	
 		});
 
+    };
+
+    // Password generator function
+    $scope.generatePassword = function() {
+
+    	// Available chars
+    	var chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>ABCDEFGHIJKLMNOP1234567890";
+	    var pass = "";
+	    for (var i = 0; i < 10; i++) {
+	        pass += chars.charAt(Math.floor(Math.random() * chars.length));
+	    }
+	    var passObj = $scope.password;
+
+	    // Check if password Object has any property (if the user already typed anything)
+	    // If not init the password property
+	   	if (typeof passObj === 'undefined') {
+	   		$scope.password = {	    		
+	    		password: pass
+	    	};
+	    // If user typed already a name or a username grab these properties and add them to the Object
+	   	} else {
+	   		$scope.password = {
+	    		name: $scope.password.name,
+	    		username: $scope.password.username,
+	    		notes: $scope.password.notes,
+	    		password: pass
+	    	};
+	   	}
     };
 }]);
