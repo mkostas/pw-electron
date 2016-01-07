@@ -3,6 +3,10 @@
   display: none !important;
 }
 
+body {
+  font-family: 'Kanit', sans-serif;
+}
+
 .nav a {
   color: #FFFFFF;
   text-shadow: 1px 1px 2px #000000;
@@ -13,21 +17,33 @@
   margin-bottom: 40px;
 }
 
+.nav img {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+
 .search {
   font-size: 20px;
 }
 
-.pw-wrapper md-content {
-  margin-bottom: 20px;
-  background-color: #F98B00;
+.pw-wrapper--content {
+  margin-bottom: 20px;  
+}
+
+.pw-wrapper--content.ng-enter {
   opacity: 0;
-  animation: fadeIn .3s linear forwards;
+  animation: fadeIn .5s linear forwards;  
+}
+
+.pw-wrapper--content.ng-leave {
+  animation: fadeOut .5s linear forwards;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(200px);
 }
 
     to {
@@ -36,13 +52,29 @@
     }
 }
 
-.pw-wrapper md-content .item {
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+}
+
+    to {
+        opacity: 0;
+        transform : translateY(200px);
+    }
+}
+
+.pw-wrapper--content--header {
+  padding: 10px;
+}
+
+.pw-wrapper--content--list {
   padding: 10px;
 }
 
 .found-items {
   margin: 20px 0px 20px 0px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .input-field {
@@ -74,8 +106,12 @@
   vertical-align:bottom;
 }
 
-.create-button {
+.create-edit {
   text-align: center;
+}
+
+.create-edit--button {
+  margin-top: 30px;
 }
 
 .successMessage {
@@ -133,4 +169,23 @@
 
 md-dialog-actions span {
   color: #000000;
+}
+
+.add-button {
+    position: fixed;
+    top: auto;
+    right: 30px;
+    bottom: 20px;
+}
+
+.md-fab {
+
+}
+
+.md-fab:hover {
+  background-color: rgb(152, 33, 24) !important;
+}
+
+.simple-form {
+  padding: 10px;
 }

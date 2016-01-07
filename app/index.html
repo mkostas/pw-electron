@@ -27,22 +27,29 @@
     <!-- Material design icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+
+    <!-- Google font -->
+    <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
     <md-toolbar class="nav" ng-cloak>
-        <div class="md-toolbar-tools">        
+        <div class="md-toolbar-tools">
+            <img ng-src="./assets/images/lock.png">       
             <a href="#/app">Password Manager</a>        
-            <span flex></span>            
-            <md-button class="md-fab md-mini md-warn" title="Create Password" href="#/create-password">
-                <md-icon><i class="material-icons md-24">add</i></md-icon>
-            </md-button>
+            <span flex></span>
       </div>
     </md-toolbar>
 
     <div class="container">
 
-      <div ng-view></div>
+        <!-- Content -->
+        <div ng-view></div>
+
+    <!-- Create button -->
+    <md-button class="md-fab md-warn md-raised add-button" title="Create Password" href="#/create-password">
+        <md-icon><i class="material-icons md-24">add</i></md-icon>
+    </md-button>
 
     </div><!-- /.container -->
 

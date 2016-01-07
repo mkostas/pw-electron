@@ -23,9 +23,11 @@ angular.module('myPasswords.passwords', ['ngRoute'])
 
   // Delete button
   //==========================================================================>
-  $scope.deleteConfirm = function(event, objId, objName) {
+  $scope.delete = function(event, objId, objName) {
       // Appending dialog to document.body to cover sidenav in docs app
       var confirm = $mdDialog.confirm()
+          .clickOutsideToClose(true)
+          .theme('dialog')
           .title('Would you like to remove this password?')
           .textContent(objName)
           .ariaLabel('Remove')
