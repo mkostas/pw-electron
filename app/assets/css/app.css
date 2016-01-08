@@ -1,45 +1,147 @@
 /* app css stylesheet */
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
 
+/* General
+=======================================================*/
 body {
   font-family: 'Kanit', sans-serif;
 }
 
-.nav a {
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+/* Shared in Pages
+=======================================================*/
+.md-fab:hover {
+  background-color: rgb(152, 33, 24) !important;
+}
+
+.message {
+  padding: 30px;
+  border-radius: 1px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: message;
+  animation-duration: 2s;
+}
+
+.success {
+  background-color: #72d572;
+  
+}
+
+.error {
+  background-color: #E06571;
+}
+
+.pw-wrapper__content {
+  margin-bottom: 20px;  
+}
+
+.pw-wrapper__content.ng-enter {
+  opacity: 0;
+  animation: fadeIn .5s linear forwards;  
+}
+
+.pw-wrapper__content.ng-leave {
+  animation: fadeOut .5s linear forwards;
+}
+
+.pw-wrapper__content__header {
+  padding: 10px;
+}
+
+.pw-wrapper__content__list {
+  padding: 10px;
+}
+
+.pw-wrapper__content__list__form {
+  padding: 10px;
+}
+
+.pw-wrapper__content__list__input-field {
+  height: 50px;
+  border: none;
+  font-size: 20px;
+  font-weight: 300;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  background-color: rgba(0,0,0,.25);
+}
+
+.pw-wrapper__content__list__button {
+  height: 50px;
+  width: 100px;  
+  text-align: center;
+  background-color: rgba(0,0,0,.35);
+  border: 0px;
+  color: #FFFFFF;
+}
+
+.create-edit {
+  text-align: center;
+}
+
+.create-edit__button {
+  margin-top: 30px;
+}
+
+.message__i {
+  vertical-align: middle;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+
+/* Index Page
+=======================================================*/
+.nav {
+  margin-bottom: 40px;
+}
+
+.nav__link {
   color: #FFFFFF;
   text-shadow: 1px 1px 2px #000000;
   font-size: 28px;
 }
 
-.nav {
-  margin-bottom: 40px;
-}
-
-.nav img {
+.nav__img {
   width: 50px;
   height: 50px;
   margin-right: 20px;
 }
 
+.add-button {
+    position: fixed;
+    top: auto;
+    right: 30px;
+    bottom: 20px;
+}
+
+
+/* Passwords Page
+=======================================================*/
 .search {
   font-size: 20px;
 }
 
-.pw-wrapper--content {
-  margin-bottom: 20px;  
+.found-items {
+  margin: 20px 0px 20px 0px;
+  padding: 10px;
 }
 
-.pw-wrapper--content.ng-enter {
-  opacity: 0;
-  animation: fadeIn .5s linear forwards;  
+md-dialog-actions span {
+  color: #000000;
 }
 
-.pw-wrapper--content.ng-leave {
-  animation: fadeOut .5s linear forwards;
-}
 
+/* Animations
+=======================================================*/
+/* fadeIn */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -52,6 +154,7 @@ body {
     }
 }
 
+/* fadeOut */
 @keyframes fadeOut {
     from {
         opacity: 1;
@@ -64,77 +167,7 @@ body {
     }
 }
 
-.pw-wrapper--content--header {
-  padding: 10px;
-}
-
-.pw-wrapper--content--list {
-  padding: 10px;
-}
-
-.found-items {
-  margin: 20px 0px 20px 0px;
-  padding: 10px;
-}
-
-.input-field {
-  height: 50px;
-  border: none;
-  background-color: transparent;
-  font-size: 20px;
-  font-weight:300;
-  color: white;
-  float:left;
-  padding:5px 10px;
-  -webkit-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all .3s ease;
-  background-color: rgba(0,0,0,.15);
-}
-
-.copy {
-  height:50px;
-  width:70px;
-  padding:10px;
-  text-align:center;
-  background-color: rgba(0,0,0,.25);
-  border:0;
-  border-left:0;
-  color: white;
-  cursor:pointer;
-  padding:0;
-  vertical-align:bottom;
-}
-
-.create-edit {
-  text-align: center;
-}
-
-.create-edit--button {
-  margin-top: 30px;
-}
-
-.successMessage {
-  background-color: #72d572;
-  padding: 30px;
-  border-radius: 1px;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: message;
-  animation-duration: 2s;
-}
-
-
-.errorMessage {
-  background-color: #E06571;
-  padding: 30px;
-  border-radius: 1px;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: message;
-  animation-duration: 2s;
-}
-
+/* message */
 @keyframes message {
 
 0% {
@@ -156,36 +189,4 @@ body {
         opacity: 0;
         transform : translateY(-50px);
     }
-}
-
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-
-.successMessage i , .errorMessage i {
-  vertical-align: middle;
-}
-
-md-dialog-actions span {
-  color: #000000;
-}
-
-.add-button {
-    position: fixed;
-    top: auto;
-    right: 30px;
-    bottom: 20px;
-}
-
-.md-fab {
-
-}
-
-.md-fab:hover {
-  background-color: rgb(152, 33, 24) !important;
-}
-
-.simple-form {
-  padding: 10px;
 }
