@@ -1,0 +1,45 @@
+{
+    // Settings    
+    "maxerr"        : 100, // Maximum error before stopping.
+
+    // Predefined globals whom JSHint will ignore.
+    "node"          : true, // Enable globals available when code is running inside of the NodeJS runtime environment.
+    "browser"       : true, // Standard browser globals e.g. `window`, `document`.
+    "jquery"        : true, // defines globals exposed by the jQuery JavaScript library.
+    "predef"        : [ // Custom globals.
+        // "define",
+        // "require",
+        // "exports",
+        // "module",
+        // "describe",
+        // "before",
+        // "beforeEach",
+        // "after",
+        // "afterEach",
+        // "it",
+        // "inject",
+        // "expect"
+    ],
+    "globals"       : { // Globals variables.
+        "jasmine": true,
+        "angular": true
+    },
+
+    // Development.
+    "devel"         : true,   // Allow developments statements e.g. `console.log();`.
+
+    // Options
+    "bitwise"       : true, // Prohibit bitwise operators (&, |, ^, etc.).
+    "curly"         : false, // Require {} for every new block or scope.
+    "eqeqeq"        : true, // Require triple equals i.e. `===`.
+    "forin"         : true, // Require check that property exist. for (key in obj) { if (obj.hasOwnProperty(key)) {} }.
+    "freeze"        : false, // Prohibit overwriting prototypes of native objects such as Array, Date and so on.    
+    "latedef"       : true, // Prohibit variable use before definition.
+    "nonew"         : true,   // Prohibit use of constructors for side-effects.    
+    "shadow"        : true,  // Warns about declaring a variable that had been already declared somewhere in the outer scope.
+    "strict"        : false,  // Require `use strict` pragma in every file.
+    "undef"         : true, // Require all non-global variables be declared before they are used.
+    "unused"        : true, // Warn unused variables.
+    "varstmt"       : false // Forbids the use of VariableStatements (var a; use `const` or `let`).
+    //"esversion"     : 5 // Allow ES.next specific features such as `const` and `let`.
+}
