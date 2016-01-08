@@ -16,10 +16,10 @@ angular.module('myPasswords.passwords', ['ngRoute'])
   var userDataPath = remote.getCurrentWindow().dataFilePath;
   var fs = require('fs');
 
-  $http.get(userDataPath)
-      .then(function(res){
-          $scope.passwords = res.data;          
-      });
+  $http.get(userDataPath).then(
+    function(res){
+        $scope.passwords = res.data;          
+    });
 
   // Delete button
   //==========================================================================>
@@ -40,7 +40,7 @@ angular.module('myPasswords.passwords', ['ngRoute'])
           var passwordObjects = $scope.passwords;
           // Find the one with the id provided and remove it from array
           for(var i = 0; i < passwordObjects.length; i++) {
-              if(passwordObjects[i].id == objId) {
+              if(passwordObjects[i].id === objId) {
                   passwordObjects.splice(i, 1);
                   break;
               }
@@ -63,5 +63,6 @@ angular.module('myPasswords.passwords', ['ngRoute'])
           console.log('cancel');
       });
   };
+
 
 }]);

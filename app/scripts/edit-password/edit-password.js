@@ -23,60 +23,61 @@ angular.module('myPasswords.edit-password', ['ngRoute'])
 	var fs = require('fs');
 
 	// Get all the passwords
-	$http.get(userDataPath)
-  	.then(function(res){
-      	var passwordObjects = res.data;
-      	// Find the password with the id provided and populate fields
-      	for(var i = 0; i < passwordObjects.length; i++) {
-			if(passwordObjects[i].id == passwordId) {
-				$scope.password = passwordObjects[i];
-				var passwordData = $scope.password;
-				break;
+	$http.get(userDataPath).then(
+		function(res) {
+	      	var passwordObjects = res.data;
+	      	// Find the password with the id provided and populate fields
+	      	for(var i = 0; i < passwordObjects.length; i++) {
+				if(passwordObjects[i].id === passwordId) {
+					$scope.password = passwordObjects[i];
+					var passwordData = $scope.password;
+					break;
+				}
 			}
-		}
 
-		// Edit function
-		$scope.edit = function() {
-	  		// Use object position index to remove the password
-		  	passwordObjects.splice(i, 1);
-		  	passwordData.id = new Date().toISOString();
-		  	passwordObjects.push(passwordData);
+			// Edit function
+			$scope.edit = function() {
+		  		// Use object position index to remove the password
+			  	passwordObjects.splice(i, 1);
+			  	passwordData.id = new Date().toISOString();
+			  	passwordObjects.push(passwordData);
 
-		  	// Check if password exists
-		  	for(var j = 0; j < passwordObjects.length; j++) {
-		  		if(passwordObjects[j].name === passwordData.name) {		  			
-		  			counter += 1;
-		  		}
-		  	}
+			  	// Check if password exists
+			  	for(var j = 0; j < passwordObjects.length; j++) {
+			  		if(passwordObjects[j].name === passwordData.name) {		  			
+			  			counter += 1;
+			  		}
+			  	}
 
-		  	// If found more than one then its a duplicate
-		  	if (counter > 1) {
-		  		$scope.errorMessage = 'Password name already exists!';
-		  		$timeout(function(){
-			    	$scope.errorMessage = '';
-					$scope.successMessage = '';
-					counter = 0;
-		       	}, 2000);
-		  	} else {
-		  		// Else Write into the file
-		  		fs.writeFile(userDataPath, JSON.stringify(passwordObjects), function (err) {
-				    if(err) {
-				        return console.error(err);
-				    } else {
-					    console.log("The file was edited!");
-					    $scope.successMessage = 'Password edited!';
-					    // Set successMessage to false after 5 secs
-					    $timeout(function(){
-					    	$scope.errorMessage = '';
-							$scope.successMessage = '';
-							counter = 0;
-				       	}, 2000);
+			  	// If found more than one then its a duplicate
+			  	if (counter > 1) {
+			  		$scope.errorMessage = 'Password name already exists!';
+			  		$timeout(function(){
+				    	$scope.errorMessage = '';
+						$scope.successMessage = '';
+						counter = 0;
+			       	}, 2000);
+			  	} else {
+			  		// Else Write into the file
+			  		fs.writeFile(userDataPath, JSON.stringify(passwordObjects), function (err) {
+					    if(err) {
+					        return console.error(err);
+					    } else {
+						    console.log("The file was edited!");
+						    $scope.successMessage = 'Password edited!';
+						    // Set successMessage to false after 5 secs
+						    $timeout(function(){
+						    	$scope.errorMessage = '';
+								$scope.successMessage = '';
+								counter = 0;
+					       	}, 2000);
 
-					}
-				});
-		  	}	  	
-		};
-  	}), function error(err) {
+						}
+					});
+			  	}	  	
+			};
+	  	},
+	  	function error(err) {
   			console.error(err);
-  	};
+  		});
 }]);

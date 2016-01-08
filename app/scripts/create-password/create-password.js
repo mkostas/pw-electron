@@ -9,7 +9,7 @@ angular.module('myPasswords.create-password', ['ngRoute'])
   });
 }])
 
-.controller('createPasswordCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {	
+.controller('createPasswordCtrl', ['$scope', '$timeout', function($scope, $timeout) {	
 
 	// Get userData path from electron's browser "backend", with filename to save ("passwords.json")
 	var remote = require('remote');
@@ -19,7 +19,7 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 
     $scope.create = function(password) {
 
-		var passwordData = $scope.password;
+		var passwordData = password;
 		passwordData.id = new Date().toISOString();
 
 		fs.readFile(userDataPath, 'utf-8', function (err, data) {
