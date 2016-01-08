@@ -29,7 +29,7 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 		  		passwordObjects.push(passwordData);		  		
 
 		  		// Write into the file
-		  		fs.writeFile(userDataPath, JSON.stringify(passwordObjects), function (err) {
+		  		fs.writeFile(userDataPath, JSON.stringify(passwordObjects, null, '\t'), function (err) {
 				    if(err) {
 				        return console.log(err);
 				    } else {
@@ -67,7 +67,7 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 			  		passwordObjects.push(passwordData);
 
 			  		// Write into the file
-					fs.writeFile(userDataPath, JSON.stringify(passwordObjects), function (err) {
+					fs.writeFile(userDataPath, JSON.stringify(passwordObjects, null, '\t'), function (err) {
 						if (err) {
 					  		return console.log(err);
 						} else {
