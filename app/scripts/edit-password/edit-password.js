@@ -59,7 +59,7 @@ angular.module('myPasswords.edit-password', ['ngRoute'])
 			       	}, 2000);
 			  	} else {
 			  		// Else Write into the file
-			  		fs.writeFile(userDataPath, JSON.stringify(passwordObjects), function (err) {
+			  		fs.writeFile(userDataPath, JSON.stringify(passwordObjects, null, '\t'), function (err) {
 					    if(err) {
 					        return console.error(err);
 					    } else {
