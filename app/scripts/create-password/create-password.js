@@ -16,6 +16,7 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 	var userDataPath = remote.getCurrentWindow().dataFilePath;
 	var fs = require('fs');
 	var counter = 0;
+	$scope.password = null;
 
     $scope.create = function(password) {
 
@@ -35,9 +36,10 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 				    } else {
 					    console.log("The file was saved!");
 					    $scope.successMessage = 'Password created!';
-					    // Set successMessage to false after 5 secs
+					    // Set successMessage to false after 2 secs
 					    $timeout(function(){
 							$scope.successMessage = '';
+							$scope.password = null;
 				       	}, 2000);
 
 					}
@@ -72,9 +74,10 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 						} else {
 						  	console.log("The file was saved!");
 						  	$scope.successMessage = 'Password created!';
-						  	// Set success to false after 5 secs
+						  	// Set success to false after 2 secs
 						  	$timeout(function(){
 								$scope.successMessage = '';
+								$scope.password = null;
 					       	}, 2000);
 					  	}
 					});
