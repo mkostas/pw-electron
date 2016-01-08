@@ -16,7 +16,6 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 	var userDataPath = remote.getCurrentWindow().dataFilePath;
 	var fs = require('fs');
 	var counter = 0;
-	$scope.password = null;
 
     $scope.create = function(password) {
 
