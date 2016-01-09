@@ -19,7 +19,7 @@
 !define uninstkey "Software\Microsoft\Windows\CurrentVersion\Uninstall\${productName}"
 
 !define uninstallerName "Uninstall"
-!define uninstaller "{{uninstallerName}}.exe"
+!define uninstaller "Uninstall.exe"
 
 ; --------------------------------
 ; Installation
@@ -166,8 +166,6 @@ Section "Uninstall"
     RMDir /r "$INSTDIR"
 
     ; Remove Start Menu launcher
-    DetailPrint "$SMPROGRAMS\${productName}\${productName}.lnk"
-    DetailPrint "$SMPROGRAMS\${productName}\${uninstaller}.lnk"
     delete "$SMPROGRAMS\${productName}\${productName}.lnk"
     delete "$SMPROGRAMS\${productName}\${uninstallerName}.lnk"
 
