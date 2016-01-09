@@ -6,6 +6,8 @@ var gulp = require('gulp');
 var jetpack = require('fs-jetpack');
 var usemin = require('gulp-usemin');
 var uglify = require('gulp-uglify');
+var sass = require('gulp-sass');
+
 var os = require('os');
 var release_windows = require('./build.windows');
 
@@ -18,7 +20,13 @@ var destDir = projectDir.cwd('./build');
 // Tasks
 // -------------------------------------
 
-gulp.task('clean', function (callback) {
+gulp.task('sass', function () {
+  gulp.src('./app/sass/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./app/assets/css'));
+});
+
+gulp.task('clean', ['sass'], function (callback) {
     return destDir.dirAsync('.', { empty: true });
 });
 
@@ -48,8 +56,8 @@ gulp.task('build', ['copy'], function () {
         .pipe(gulp.dest('build/'));
 });
 
-
 gulp.task('run', function () {
+    gulp.watch('./app/sass/**/*.scss', ['sass']);
     childProcess.spawn(electron, ['./app'], { stdio: 'inherit' });
 });
 

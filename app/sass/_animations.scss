@@ -1,0 +1,51 @@
+/* Animations
+=======================================================*/
+/* fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+}
+
+    to {
+        opacity: 1;
+        transform : translateY(0);
+    }
+}
+
+/* fadeOut */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+}
+
+    to {
+        opacity: 0;
+        transform : translateY(200px);
+    }
+}
+
+/* message */
+@keyframes message {
+
+0% {
+        opacity: 0;
+        transform: translateY(50px);
+}
+
+5% {
+        opacity: 1;
+        transform: translateY(0);
+}
+
+95% {
+        opacity: 1;
+        transform: translateY(0);
+}
+
+100% {
+        opacity: 0;
+        transform : translateY(-50px);
+    }
+}

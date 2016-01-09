@@ -1,0 +1,139 @@
+/* app css stylesheet */
+
+/* General
+=======================================================*/
+body {
+    font-family: 'Kanit', sans-serif;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+
+/* Shared in Pages
+=======================================================*/
+.md-fab:hover {
+    background-color: rgb(152, 33, 24) !important;
+}
+
+.message {
+    padding: 30px;
+    border-radius: 1px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: message;
+    animation-duration: 2s;
+}
+
+.success {
+    background-color: #72d572;  
+}
+
+.error {
+    background-color: #E06571;
+}
+
+.pw-wrapper__content {
+    margin-bottom: 20px;
+
+    &.ng-enter {
+        opacity: 0;
+        animation: fadeIn .5s linear forwards;  
+    }
+
+    &.ng-leave {
+        animation: fadeOut .5s linear forwards;
+    }
+
+    &__header {
+        padding: 10px;    
+    }
+
+    &__list {
+    padding: 10px;
+
+        &__form {
+            padding: 10px;
+        }
+
+        &__input-field {
+            height: 50px;
+            border: none;
+            font-size: 20px;
+            font-weight: 300;
+            color: #FFFFFF;
+            padding: 5px 10px;
+            background-color: rgba(0,0,0,.25);
+        }
+
+        &__button {
+            height: 50px;
+            width: 100px;  
+            text-align: center;
+            background-color: rgba(0,0,0,.35);
+            border: 0px;
+            color: #FFFFFF;
+        }
+    }
+}
+
+.create-edit {
+    text-align: center;    
+    &__button {
+        margin-top: 30px;
+    }
+}
+
+.message__i {
+    vertical-align: middle;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+
+/* Index Page
+=======================================================*/
+.nav {
+    margin-bottom: 40px;
+
+    &__link {
+        color: #FFFFFF;
+        text-shadow: 1px 1px 2px #000000;
+        font-size: 28px;
+    }
+
+    &__img {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+    }
+}
+
+.add-button {
+    position: fixed;
+    top: auto;
+    right: 30px;
+    bottom: 20px;
+}
+
+
+/* Passwords Page
+=======================================================*/
+.search {
+    font-size: 20px;
+}
+
+.found-items {
+    margin: 20px 0px 20px 0px;
+    padding: 10px;
+}
+
+md-dialog-actions span {
+    color: #000000;
+}
+
+@import 'animations';
