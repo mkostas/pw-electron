@@ -13,12 +13,12 @@ body {
   background-color: #982118 !important; }
 
 .message {
+  font-family: 'Kanit', sans-serif;
   padding: 30px;
   border-radius: 1px;
   margin-bottom: 20px;
-  opacity: 0;
   animation: message;
-  animation-duration: 2s; }
+  animation-duration: .5s; }
 
 .success {
   background-color: #72d572; }
@@ -62,18 +62,6 @@ body {
 
 .message__i {
   vertical-align: middle; }
-
-.material-icons.md-18 {
-  font-size: 18px; }
-
-.material-icons.md-24 {
-  font-size: 24px; }
-
-.material-icons.md-36 {
-  font-size: 36px; }
-
-.material-icons.md-48 {
-  font-size: 48px; }
 
 /* Index Page
 =======================================================*/
@@ -128,15 +116,9 @@ md-dialog-actions span {
 
 /* message */
 @keyframes message {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(50px); }
-  5% {
+  to {
     opacity: 1;
-    transform: translateY(0); }
-  95% {
-    opacity: 1;
-    transform: translateY(0); }
-  100% {
-    opacity: 0;
-    transform: translateY(-50px); } }
+    transform: translateY(0); } }
