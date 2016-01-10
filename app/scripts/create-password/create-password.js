@@ -19,71 +19,67 @@ angular.module('myPasswords.create-password', ['ngRoute'])
 
     $scope.create = function(password) {
 
-		var passwordData = password;
-		passwordData.id = new Date().toISOString();
+    	if (password) {
+    		var passwordData = password;
+			passwordData.id = new Date().toISOString();
 
-		fs.readFile(userDataPath, 'utf-8', function (err, data) {
-			var passwordObjects = [];
-			// If file is empty			
-		  	if (data === '') {
-		  		passwordObjects.push(passwordData);		  		
-
-		  		// Write into the file
-		  		fs.writeFile(userDataPath, JSON.stringify(passwordObjects, null, '\t'), function (err) {
-				    if(err) {
-				        return console.log(err);
-				    } else {
-					    console.log("The file was saved!");
-					    $scope.successMessage = 'Password created!';
-					    // Set successMessage to false after 2 secs
-					    $timeout(function(){
-							$scope.successMessage = '';
-							$scope.password = null;
-				       	}, 2000);
-
-					}
-				}); 
-			// If file is not empty
-		  	} else {
-		  		// Get password objects
-		  		passwordObjects = JSON.parse(data);		  		
-
-		  		// Check if password exists
-			  	for(var j = 0; j < passwordObjects.length; j++) {
-			  		if(passwordObjects[j].name === passwordData.name) {	
-			  		counter += 1;
-			  		}		  		
-			  	}
-			  	// If found at least 1 then its a duplicate
-			  	if (counter > 0) {
-			  		$scope.errorMessage = 'Password name already exists!';
-			  		$timeout(function(){
-				    	$scope.errorMessage = '';
-						$scope.successMessage = '';
-						counter = 0;
-			       	}, 2000);
-			  	} else {
-			  		// Else push the new password in
-			  		passwordObjects.push(passwordData);
+			fs.readFile(userDataPath, 'utf-8', function (err, data) {
+				var passwordObjects = [];
+				// If file is empty			
+			  	if (data === '') {
+			  		passwordObjects.push(passwordData);		  		
 
 			  		// Write into the file
-					fs.writeFile(userDataPath, JSON.stringify(passwordObjects, null, '\t'), function (err) {
-						if (err) {
-					  		return console.log(err);
-						} else {
-						  	console.log("The file was saved!");
-						  	$scope.successMessage = 'Password created!';
-						  	// Set success to false after 2 secs
-						  	$timeout(function(){
-								$scope.successMessage = '';
-								$scope.password = null;
-					       	}, 2000);
-					  	}
-					});
-			  	}
-		  	}		  	
-		});
+			  		fs.writeFile(userDataPath, JSON.stringify(passwordObjects, null, '\t'), function (err) {
+					    if(err) {
+					        return console.log(err);
+					    } else {
+						    console.log("The file was saved!");
+						    $scope.successMessage = 'Password created!';
+			  				$scope.password = null;
+			  				$scope.errorMessage = '';
+						}
+					}); 
+				// If file is not empty
+			  	} else {
+			  		// Get password objects
+			  		passwordObjects = JSON.parse(data);		  		
 
+			  		// Check if password exists
+				  	for(var j = 0; j < passwordObjects.length; j++) {
+				  		if(passwordObjects[j].name === passwordData.name) {	
+				  		counter += 1;
+				  		}		  		
+				  	}
+				  	// If found at least 1 then its a duplicate
+				  	if (counter > 0) {
+				  		$scope.errorMessage = 'Password name already exists!';
+				  		console.log("Password name already exists!");
+						$scope.successMessage = '';
+						counter = 0;
+				  	} else {
+				  		// Else push the new password in
+				  		passwordObjects.push(passwordData);
+
+				  		// Write into the file
+						fs.writeFile(userDataPath, JSON.stringify(passwordObjects, null, '\t'), function (err) {
+							if (err) {
+						  		return console.log(err);
+							} else {
+							  	console.log("The file was saved!");
+							  	$scope.successMessage = 'Password created!';
+								$scope.password = null;
+								$scope.errorMessage = '';
+						  	}
+						});
+				  	}
+			  	}		  	
+			});
+    	} else {
+
+    		$scope.errorMessage = 'Type a name!';
+    		$scope.successMessage = '';
+    	}		
     };
 
     // Password generator function

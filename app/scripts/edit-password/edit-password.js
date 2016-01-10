@@ -13,9 +13,6 @@ angular.module('myPasswords.edit-password', ['ngRoute'])
 	// Get password ID from url parameter
 	var passwordId = $routeParams.id;
 	var counter = 0;
-	$scope.successMessage = '';
-	$scope.errorMessage = '';
-
 
 	// Get userData path from electron's browser "backend", with filename ("passwords.json")
 	var remote = require('remote');
@@ -52,11 +49,8 @@ angular.module('myPasswords.edit-password', ['ngRoute'])
 			  	// If found more than one then its a duplicate
 			  	if (counter > 1) {
 			  		$scope.errorMessage = 'Password name already exists!';
-			  		$timeout(function(){
-				    	$scope.errorMessage = '';
-						$scope.successMessage = '';
-						counter = 0;
-			       	}, 2000);
+			  		$scope.successMessage = '';
+					counter = 0;
 			  	} else {
 			  		// Else Write into the file
 			  		fs.writeFile(userDataPath, JSON.stringify(passwordObjects, null, '\t'), function (err) {
@@ -65,13 +59,8 @@ angular.module('myPasswords.edit-password', ['ngRoute'])
 					    } else {
 						    console.log("The file was edited!");
 						    $scope.successMessage = 'Password edited!';
-						    // Set successMessage to false after 5 secs
-						    $timeout(function(){
-						    	$scope.errorMessage = '';
-								$scope.successMessage = '';
-								counter = 0;
-					       	}, 2000);
-
+						    counter = 0;
+						    $scope.errorMessage = '';
 						}
 					});
 			  	}	  	
