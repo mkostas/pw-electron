@@ -32,7 +32,7 @@
     <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet' type='text/css'>
   </head>
 
-  <body>
+  <body ng-controller="mainCtrl">
     <md-toolbar class="nav" ng-cloak>
         <div class="md-toolbar-tools">
             <img class="nav__img" ng-src="./assets/images/lock.png">       
@@ -47,7 +47,7 @@
         <div ng-view></div>
 
     <!-- Create button -->
-    <md-button class="md-fab md-warn md-raised add-button" title="Create Password" href="#/create-password">
+    <md-button ng-click="reloadRoute()" class="md-fab md-warn md-raised add-button" title="Create Password" href="#/create-password">
         <md-icon><i class="material-icons md-24">add</i></md-icon>
     </md-button>
 
@@ -68,6 +68,8 @@
     <script src="scripts/passwords/passwords.js"></script>
     <script src="scripts/create-password/create-password.js"></script>
     <script src="scripts/edit-password/edit-password.js"></script>
+    <script src="components/name/name-directive.js"></script>
+
     <script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
     <script src="components/version/interpolate-filter.js"></script>
